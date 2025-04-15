@@ -1,3 +1,5 @@
 // Sample of adding fields to Calendar
-,week(Date) as [$(_fieldPrefix)Week]
-,WeekYear(Date) & '-' & week(Date) as [$(_fieldPrefix)Year-Week]
+,week(Date)                                                     as [$(_fieldPrefix)Week]
+,WeekYear(Date) & '-' & week(Date)                              as [$(_fieldPrefix)Jaar-Week]
+,Date                                                           as [$(_fieldPrefix)Datum]
+,If(If(Date > Today(), 1,0) = 0 AND If(InWeek(Date,Today(),0),1,0) = 0, 'Ja', 'Nee')  as [$(_fieldPrefix)Datum voor huidige week?]
