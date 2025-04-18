@@ -25,10 +25,6 @@ $(_f_DateSerial) = {"<=@(=num(AddMonths($(_qvctemp.vMaxModifier) $(_f_DateSerial
 $(_f_WeekSerial) = {@(=$(_qvctemp.vMaxModifier) $(_f_WeekSerial))-52)}'
 );
 
-// Previous Year Week To Date
-//$(_f_WeekSerial) = {@(=$(_qvctemp.vMaxModifier) $(_f_WeekSerial))-52)},
-//$(_fDay) = {"<=@(=Day($(_qvctemp.vMaxModifier) $(_f_DateSerial))))"}'
-
 Let $(_fieldPrefix)vSetPreviousYearWTD =
 MapSubString('_qvctemp.Calendar.EscapeCharsMap',
 '{$<
@@ -92,11 +88,11 @@ LET s.$(_fieldPrefix)Period.Current.Label = '=Pick(Match(Upper(' & chr(39) & chr
 											        & chr(39) & 'YTD' & chr(39) & ')';
 
 LET s.$(_fieldPrefix)Period.Current.Value = '=Pick(Match(Upper(' & chr(39) & chr(36) & '(v.$(_fieldPrefix)Period.Selected)' & chr(39) & '), ' & chr(39) & 'D' & chr(39) & ', ' & chr(39) & 'W' & chr(39) & ', ' & chr(39) & 'M' & chr(39) & ', ' & chr(39) & 'Q' & chr(39) & ', ' & chr(39) & 'Y' & chr(39) & '),'
-											        & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.Current) [$(pFieldName)])' & chr(39) & ','
-											        & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.Current) [$(_fieldPrefix)Jaar-Week])' & chr(39) & ','
-											        & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.Current) [$(_fieldPrefix)Jaar-Maand])' & chr(39) & ','
-											        & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.Current) [$(_fieldPrefix)Jaar-Kwartaal])' & chr(39) & ','
-											        & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.Current) [$(_fieldPrefix)Jaar])' & chr(39) & ')';
+											        & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.Current) [$(pFieldName)])' & chr(39) & ','
+											        & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.Current) [$(_fieldPrefix)Jaar-Week])' & chr(39) & ','
+											        & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.Current) [$(_fieldPrefix)Jaar-Maand])' & chr(39) & ','
+											        & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.Current) [$(_fieldPrefix)Jaar-Kwartaal])' & chr(39) & ','
+											        & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.Current) [$(_fieldPrefix)Jaar])' & chr(39) & ')';
 											       
 // Previous year
 LET s.$(_fieldPrefix)Period.PreviousYear = '=Pick(Match(Upper(' & chr(39) & chr(36) & '(v.$(_fieldPrefix)Period.Selected)' & chr(39) & '), ' & chr(39) & 'D' & chr(39) & ', ' & chr(39) & 'W' & chr(39) & ', ' & chr(39) & 'M' & chr(39) & ', ' & chr(39) & 'Q' & chr(39) & ', ' & chr(39) & 'Y' & chr(39) & '),'
@@ -115,8 +111,8 @@ LET s.$(_fieldPrefix)Period.PreviousYear.Label = '=Pick(Match(Upper(' & chr(39) 
 											             & chr(39) & 'YTD' & chr(39) & ')';
 
 LET s.$(_fieldPrefix)Period.PreviousYear.Value = '=Pick(Match(Upper(' & chr(39) & chr(36) & '(v.$(_fieldPrefix)Period.Selected)' & chr(39) & '), ' & chr(39) & 'D' & chr(39) & ', ' & chr(39) & 'W' & chr(39) & ', ' & chr(39) & 'M' & chr(39) & ', ' & chr(39) & 'Q' & chr(39) & ', ' & chr(39) & 'Y' & chr(39) & '),'
- 												             & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.PreviousYear) [$(pFieldName)])' & chr(39) & ','
- 												             & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.PreviousYear) [$(_fieldPrefix)Jaar-Week])' & chr(39) & ','
-												             & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.PreviousYear) [$(_fieldPrefix)Jaar-Maand])' & chr(39) & ','
- 												             & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.PreviousYear) [$(_fieldPrefix)Jaar-Kwartaal])' & chr(39) & ','
-												             & chr(39) & 'only(' & chr(36) & '($(_fieldPrefix)s.Period.PreviousYear) [$(_fieldPrefix)Jaar])' & chr(39) & ')';
+ 												             & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.PreviousYear) [$(pFieldName)])' & chr(39) & ','
+ 												             & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.PreviousYear) [$(_fieldPrefix)Jaar-Week])' & chr(39) & ','
+												             & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.PreviousYear) [$(_fieldPrefix)Jaar-Maand])' & chr(39) & ','
+ 												             & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.PreviousYear) [$(_fieldPrefix)Jaar-Kwartaal])' & chr(39) & ','
+												             & chr(39) & 'only(' & chr(36) & '(s.$(_fieldPrefix)Period.PreviousYear) [$(_fieldPrefix)Jaar])' & chr(39) & ')';
