@@ -2,6 +2,22 @@
 Additional variables
 //***********************/
 
+// Previous N Full Months
+// Example usage:
+// Count($(vSetRollingFULLMonthN(3)) orderNo)	// Count # orders for prior 3 months
+Let $(_fieldPrefix)vSetRollingFULLMonthNModifier =
+MapSubString('_qvctemp.Calendar.EscapeCharsMap',
+'$(_vClearFieldList)
+$(_f_MonthSerial) = {">=@(=$(_qvctemp.vMaxModifier) $(_f_MonthSerial))- 1 - ($1 - 1))<=@(=$(_qvctemp.vMaxModifier) $(_f_MonthSerial))-1)"}'
+);
+
+Let $(_fieldPrefix)vSetRollingFULLMonthN =
+MapSubString('_qvctemp.Calendar.EscapeCharsMap',
+'{$<
+@($(_fieldPrefix)vSetRollingFULLMonthNModifier($1))
+>}'
+);
+
 // Week To Date
 Let $(_fieldPrefix)vSetWTDModifier = 
 MapSubString('_qvctemp.Calendar.EscapeCharsMap',
